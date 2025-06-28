@@ -1,7 +1,7 @@
 export default class Player{
     constructor(gameWidth, gameHeigth){
         this.image = new Image();
-        this.image.src = 'player.png';
+        this.image.src = './pictures/player.png';
         this.gameWidth = gameWidth;
         this.gameHeigth = gameHeigth;
         this.width = 200;
@@ -16,7 +16,7 @@ export default class Player{
         this.vy = 0;
         this.weight = 1;
     };
-    
+
     draw(context){
         context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, 
             this.width, this.height, this.x, this.y, this.width, this.height);

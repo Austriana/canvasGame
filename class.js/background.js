@@ -1,7 +1,7 @@
 export default class Background{
     constructor(gameWidth, gameHeigth){
         this.image = new Image();
-        this.image.src = 'background.png';
+        this.image.src = './pictures/background.png';
         this.gameWidth = gameWidth;
         this.gameHeigth = gameHeigth;
         this.x = 0;
