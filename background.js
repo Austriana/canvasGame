@@ -1,4 +1,4 @@
-export class Background{
+export default class Background{
     constructor(gameWidth, gameHeigth){
         this.image = new Image();
         this.image.src = 'background.png';
@@ -9,14 +9,17 @@ export class Background{
         this.width = 2400;
         this.height = 720;
         this.speed = 5;
-    }
+    };
+
     draw(context){
         context.drawImage(this.image, this.x, this.y, this.width, this.height)
-        context.drawImage(this.image, this.x + this.width - this.speed, this.y, this.width, this.height)
+        context.drawImage(this.image, this.x + this.width - this.speed, this.y, 
+            this.width, this.height);
 
-    }
+    };
+
     update(){
         this.x -= this.speed;
         if(this.x < 0 - this.width) this.x = 0;
-    }
-}
+    };
+};

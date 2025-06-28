@@ -1,4 +1,4 @@
-export class InputHandler{
+export default class InputHandler{
     constructor(){
         this.keys = [];
         window.addEventListener('keydown', (e) => {
@@ -18,6 +18,5 @@ export class InputHandler{
                 this.keys.splice(this.keys.indexOf(e.code), 1)
             };
         });
-        
     };
 };

@@ -1,4 +1,4 @@
-export class Player{
+export default class Player{
     constructor(gameWidth, gameHeigth){
         this.image = new Image();
         this.image.src = 'player.png';
@@ -15,7 +15,8 @@ export class Player{
         this.speed = 0;
         this.vy = 0;
         this.weight = 1;
-    }
+    };
+    
     draw(context){
         context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, 
             this.width, this.height, this.x, this.y, this.width, this.height);
@@ -25,7 +26,7 @@ export class Player{
         if(input.keys.indexOf('ArrowRight')>-1){
             this.speed = 5;
             if(this.frameX < 8 && this.onGround()){
-            this.frameX++
+            this.frameX++;
             } else this.frameX = 0;
         } else if(input.keys.indexOf('ArrowLeft')>-1){
             this.speed = -5;
@@ -49,8 +50,9 @@ export class Player{
             this.frameY = 0;
         };
 
-        if(this.y > this.gameHeigth - this.height) this.y = this.gameHeigth - this.height;
-
+        if(this.y > this.gameHeigth - this.height){
+            this.y = this.gameHeigth - this.height;
+        };
     }
     onGround(){
         return this.y >= this.gameHeigth - this.height;
