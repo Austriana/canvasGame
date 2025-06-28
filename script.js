@@ -8,7 +8,6 @@ window.addEventListener('load', () => {
         constructor(){
             this.keys = [];
             window.addEventListener('keydown', (e) => {
-                console.log(e.code, e.code)
                 if(( e.code === 'ArrowDown' ||
                     e.code === 'Space' ||
                     e.code === 'ArrowLeft' ||
