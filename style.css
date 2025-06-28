@@ -13,7 +13,3 @@
     transform: translate(-50%, -50%);
     border: solid white;
 }
-
-#playerImage, #enemyImage, #backgroundImage {
-    display: none;
-}
