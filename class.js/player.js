@@ -30,6 +30,10 @@ export default class Player{
             } else this.frameX = 0;
         } else if(input.keys.indexOf('ArrowLeft')>-1){
             this.speed = -5;
+            if(this.frameX < 8 && this.onGround()){
+            this.frameX++;
+            } else this.frameX = 0;
+
         } else if(input.keys.indexOf('Space')>-1 && this.onGround()){
             this.vy -= 30;
         } else {

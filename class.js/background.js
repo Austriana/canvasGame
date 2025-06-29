@@ -8,7 +8,7 @@ export default class Background{
         this.y = 0;
         this.width = 2400;
         this.height = 720;
-        this.speed = 5;
+        this.speed = 0;
     };
 
     draw(context){
