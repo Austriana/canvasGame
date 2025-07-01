@@ -1,3 +1,5 @@
+
+
 export default class Player{
     constructor(gameWidth, gameHeigth){
         this.image = new Image();
@@ -15,24 +17,42 @@ export default class Player{
         this.speed = 0;
         this.vy = 0;
         this.weight = 1;
+        this.collision = false;
+        this.counter = 0;
     };
 
     draw(context){
+        context.strokeStyle = 'white';
+        context.beginPath();
+        context.arc(this.x + this.width/2, this.y + this.height/2, this.width/2, 0, Math.PI * 2);
+        context.stroke();
+        // context.strokeRect(this.x, this.y, this.width, this.height);
         context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, 
             this.width, this.height, this.x, this.y, this.width, this.height);
     };
 
-    update(input){
+    update(input, enemiesArray){
+        enemiesArray.forEach(enemy => {
+            const dx = enemy.x - this.x;
+            const dy = enemy.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if(distance < enemy.width/2 + this.width/2){
+                this.collision = true;
+                this.counter++
+            } else this.collision = false;
+        });
         if(input.keys.indexOf('ArrowRight')>-1){
-            this.speed = 5;
+             this.speed = 5;
             if(this.frameX < 8 && this.onGround()){
             this.frameX++;
             } else this.frameX = 0;
         } else if(input.keys.indexOf('ArrowLeft')>-1){
             this.speed = -5;
             if(this.frameX < 8 && this.onGround()){
-            this.frameX++;
-            } else this.frameX = 0;
+                this.frameX++
+            } else {
+                this.frameX = 0;
+            }
 
         } else if(input.keys.indexOf('Space')>-1 && this.onGround()){
             this.vy -= 30;
