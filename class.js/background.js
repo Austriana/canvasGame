@@ -25,7 +25,7 @@ export default class Background{
         } else if(input.keys.indexOf('ArrowLeft')>-1){
             this.speed = 0;
         } else {
-            this.speed = 1;
+            this.speed = 0;
         }
         this.x -= this.speed;
         if(this.x < 0 - this.width) this.x = 0;
