@@ -8,7 +8,7 @@ export default class Player{
         this.gameHeigth = gameHeigth;
         this.width = 200;
         this.height = 200;
-        this.x = 150;
+        this.x = 0;
         this.y = this.gameHeigth - this.height;
         this.frameX = 0;
         this.frameY = 0;

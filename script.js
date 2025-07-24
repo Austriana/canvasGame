@@ -5,7 +5,7 @@ import InputHandler from "./class.js/inputhandler.js";
 window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
-    canvas.width = 700;
+    canvas.width = window.innerWidth;
     canvas.height = 730;
     let speed = 5;
     let playerSpeed = 16;
