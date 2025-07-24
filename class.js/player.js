@@ -8,17 +8,14 @@ export default class Player{
         this.gameHeigth = gameHeigth;
         this.width = 200;
         this.height = 200;
-        this.x = 10;
+        this.x = 150;
         this.y = this.gameHeigth - this.height;
         this.frameX = 0;
         this.frameY = 0;
         this.width = this.width;
         this.height = this.height;
-        this.speed = 0;
         this.vy = 0;
         this.weight = 1;
-        this.collision = false;
-        this.counter = 0;
     };
 
     draw(context){
@@ -26,30 +23,16 @@ export default class Player{
             this.width, this.height, this.x, this.y, this.width, this.height);
     };
 
-    update(input){
-        if(input.keys.indexOf('ArrowRight')>-1){
-             this.speed = 1;
-            if(this.frameX < 8 && this.onGround()){
-            this.frameX++;
-            } else this.frameX = 0;
-        } else if(input.keys.indexOf('ArrowLeft')>-1){
-            this.speed = -1;
-            if(this.frameX < 8 && this.onGround()){
-                this.frameX++
-            } else {
-                this.frameX = 0;
-            }
-
-        } else if(input.keys.indexOf('Space')>-1 && this.onGround()){
-            this.vy -= 30;
-        } else {
-            this.speed = 0;
-            this.frameX = 0;
-        };
-
-        this.x += this.speed;
-        if(this.x < 0) this.x = 0;
-        else if (this.x > this.gameWidth - this.width) this.x = this.gameWidth - this.width
+    update(input, gameframe, playerSpeed){        
+        if(input.keys === 'Space' && this.onGround()){
+            this.vy -= 25 ;
+            input.keys = ''; 
+        }
+        if(gameframe % playerSpeed === 0){
+            this.frameX < 7 && this.onGround() 
+                ? this.frameX++ 
+                : this.frameX = 0
+        }
 
         this.y += this.vy;
         if(!this.onGround()){

@@ -4,22 +4,51 @@ import InputHandler from "./class.js/inputhandler.js";
 
 window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = 800;
-    canvas.height = 720;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    canvas.width = 700;
+    canvas.height = 730;
+    let speed = 5;
+    let playerSpeed = 16;
+    let gameFrame = 0;
+
+    let slider = document.getElementById('slider');
+    slider.addEventListener('change', ()=>{
+        speed = document.getElementById('slider').value;
+        playerSpeed = 21 - speed;
+    });
+
+    let layer_1 = new Image();
+    layer_1.src = './pictures/layer-1.png';
+    let layer_2 = new Image();
+    layer_2.src = './pictures/layer-2.png';
+    let layer_3 = new Image();
+    layer_3.src = './pictures/layer-3.png';
+    let layer_4 = new Image();
+    layer_4.src = './pictures/layer-4.png';
+    let layer_5 = new Image();
+    layer_5.src = './pictures/layer-5.png';
 
     const input = new InputHandler();
-    const player = new Player(canvas.width, canvas.height);
-    const background = new Background(canvas.width, canvas.height);
+    const player = new Player(canvas.width, canvas.height - 120);
+    const background_1 = new Background(canvas.width, canvas.height, layer_1, 1);
+    const background_2 = new Background(canvas.width, canvas.height, layer_2, 0.2);
+    const background_3 = new Background(canvas.width, canvas.height, layer_3, 0.3);
+    const background_4 = new Background(canvas.width, canvas.height, layer_4, 0.7);
+    const background_5 = new Background(canvas.width, canvas.height, layer_5, 1);
+
+    let background = [background_1, background_2, background_3, background_4, background_5]
 
     function animate(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        background.draw(ctx);
-        background.update(input);
+        background.forEach((layer) => {
+            layer.draw(ctx);
+            layer.update(speed);
+        });
         player.draw(ctx);
-        player.update(input);
+        player.update(input, gameFrame, playerSpeed);
         requestAnimationFrame(animate);
+        gameFrame++
     };
 
-    animate(0);
+    animate();
 });
