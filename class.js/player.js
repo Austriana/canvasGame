@@ -28,6 +28,7 @@ export default class Player{
             this.vy -= 25 ;
             input.keys = ''; 
         }
+        console.log(playerSpeed)
         if(gameframe % playerSpeed === 0){
             this.frameX < 7 && this.onGround() 
                 ? this.frameX++ 

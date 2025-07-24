@@ -8,13 +8,13 @@ window.addEventListener('load', () => {
     canvas.width = 700;
     canvas.height = 730;
     let speed = 16;
-    let playerSpeed = 5;
+    let playerSpeed = 3;
     let gameFrame = 0;
 
     let slider = document.getElementById('slider');
     slider.addEventListener('change', ()=>{
         speed = document.getElementById('slider').value;
-        playerSpeed = 21 - speed;
+        playerSpeed = Math.round((21 - speed)/2);
     });
 
     let layer_1 = new Image();
@@ -30,7 +30,7 @@ window.addEventListener('load', () => {
 
     const input = new InputHandler();
     const player = new Player(canvas.width, canvas.height - 120);
-    const background_1 = new Background(canvas.width, canvas.height, layer_1, 1);
+    const background_1 = new Background(canvas.width, canvas.height, layer_1, 0);
     const background_2 = new Background(canvas.width, canvas.height, layer_2, 0.2);
     const background_3 = new Background(canvas.width, canvas.height, layer_3, 0.3);
     const background_4 = new Background(canvas.width, canvas.height, layer_4, 0.7);
