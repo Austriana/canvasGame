@@ -7,8 +7,8 @@ window.addEventListener('load', () => {
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     canvas.width = 700;
     canvas.height = 730;
-    let speed = 5;
-    let playerSpeed = 16;
+    let speed = 16;
+    let playerSpeed = 5;
     let gameFrame = 0;
 
     let slider = document.getElementById('slider');
