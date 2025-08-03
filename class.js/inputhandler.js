@@ -5,6 +5,6 @@ export default class InputHandler{
         });
         this.keys = window.addEventListener('click', (e)=>{
             this.keys = e.target.value
-        })
+        });
      };
 };

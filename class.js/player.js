@@ -27,13 +27,13 @@ export default class Player{
         if(input.keys === 'Space' && this.onGround()){
             this.vy -= 25 ;
             input.keys = ''; 
-        }
+        };
         console.log(playerSpeed)
         if(gameframe % playerSpeed === 0){
             this.frameX < 7 && this.onGround() 
                 ? this.frameX++ 
                 : this.frameX = 0
-        }
+        };
 
         this.y += this.vy;
         if(!this.onGround()){

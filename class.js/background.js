@@ -7,7 +7,7 @@ export default class Background{
         this.y = 0;
         this.width = 2400;
         this.height = 730;
-        this.speedModifier = speedModifier
+        this.speedModifier = speedModifier;
     };
 
     draw(context){
