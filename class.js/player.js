@@ -16,6 +16,8 @@ export default class Player{
         this.height = this.height;
         this.vy = 0;
         this.weight = 1;
+        this.slider = document.getElementById('slider');
+
     };
 
     draw(context){
@@ -24,11 +26,11 @@ export default class Player{
     };
 
     update(input, gameframe, playerSpeed){        
-        if(input.keys === 'Space' && this.onGround()){
+        if(input.keys === 'KeyW' && this.onGround()){
             this.vy -= 25 ;
             input.keys = ''; 
         };
-        console.log(playerSpeed)
+
         if(gameframe % playerSpeed === 0){
             this.frameX < 7 && this.onGround() 
                 ? this.frameX++ 

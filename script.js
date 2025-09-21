@@ -13,9 +13,19 @@ window.addEventListener('load', () => {
 
     let slider = document.getElementById('slider');
     slider.addEventListener('change', ()=>{
-        speed = document.getElementById('slider').value;
+        speed = slider.value;
         playerSpeed = Math.round((21 - speed)/2);
     });
+
+    window.addEventListener('keydown', (e)=>{
+        if(e.code === 'KeyA' && slider.value > 0)
+            slider.value--
+        if(e.code === 'KeyD' && slider.value < 21)
+            slider.value++
+
+        speed = slider.value;
+        playerSpeed = Math.round((21 - speed)/2);        
+    })
 
     let layer_1 = new Image();
     layer_1.src = './pictures/layer-1.png';
