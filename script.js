@@ -25,26 +25,15 @@ window.addEventListener('load', () => {
 
         speed = slider.value;
         playerSpeed = Math.round((21 - speed)/2);        
-    })
-
-    let layer_1 = new Image();
-    layer_1.src = './pictures/layer-1.png';
-    let layer_2 = new Image();
-    layer_2.src = './pictures/layer-2.png';
-    let layer_3 = new Image();
-    layer_3.src = './pictures/layer-3.png';
-    let layer_4 = new Image();
-    layer_4.src = './pictures/layer-4.png';
-    let layer_5 = new Image();
-    layer_5.src = './pictures/layer-5.png';
+    });
 
     const input = new InputHandler();
     const player = new Player(canvas.width, canvas.height - 120);
-    const background_1 = new Background(canvas.width, canvas.height, layer_1, 0);
-    const background_2 = new Background(canvas.width, canvas.height, layer_2, 0.2);
-    const background_3 = new Background(canvas.width, canvas.height, layer_3, 0.3);
-    const background_4 = new Background(canvas.width, canvas.height, layer_4, 0.7);
-    const background_5 = new Background(canvas.width, canvas.height, layer_5, 1);
+    const background_1 = new Background(canvas.width, canvas.height, './pictures/layer-1.png', 0);
+    const background_2 = new Background(canvas.width, canvas.height, './pictures/layer-2.png', 0.2);
+    const background_3 = new Background(canvas.width, canvas.height, './pictures/layer-3.png', 0.3);
+    const background_4 = new Background(canvas.width, canvas.height, './pictures/layer-4.png', 0.7);
+    const background_5 = new Background(canvas.width, canvas.height, './pictures/layer-5.png', 1);
 
     let background = [background_1, background_2, background_3, background_4, background_5]
 
