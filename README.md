@@ -1,1 +1,1 @@
-https://austriana.github.io/canvasGame/
+https://austriana.github.io/run_game/
